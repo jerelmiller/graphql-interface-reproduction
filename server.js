@@ -10,12 +10,26 @@ query {
       score
 
       metadata {
-        height
+        __typename
+        displayName
       }
     }
 
     ...on RobotPlayer {
       turn
+    }
+
+    metadata {
+      __typename
+      displayName
+
+      ...on RobotMetadata {
+        model
+      }
+
+      ...on HumanMetadata {
+        height
+      }
     }
   }
 }
